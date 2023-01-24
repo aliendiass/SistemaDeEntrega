@@ -1,2 +1,3 @@
 class Entrega {
-  
+  String nome = "";
+}
