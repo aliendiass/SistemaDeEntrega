@@ -10,7 +10,7 @@ public class Entregador extends Pessoa {
     super(nome, " -- ", telefone, cpf);
     this.empresa= empresa;
     this.email= nome_completo+"@"+this.empresa+".com.br";
-    lista_entregas= new ArrayList<Entrega>();
+    lista_entrega= new ArrayList<Entrega>();
     
   }
 
@@ -20,22 +20,25 @@ public class Entregador extends Pessoa {
   System.out.println("CPF: " + this.cpf);
   System.out.println("Contato: " + this.telefone + " / " + this.email);
   System.out.println("Empresa: " + this.empresa);
+  info_entregas();
   System.out.println(" ");
   }
 
   public void info_entregas(){
-    if(lista_entregas.size() == 0) {
+    if(lista_entrega.size() == 0) {
       System.out.println("nenhum pedido foi separado ainda");
     } 
       else {
-        for(int i= 0; i < lista_entrega.size(); i++) {
-          System.out.println(lista_entrega.get(i));
+        for(Entrega produto : lista_entrega) {
+
+          produto.info_para_entregador();
+          System.out.println("");
         }
       }
   }
   
   public void aloca_entrega(Entrega nova_entrega) {
-    System.out.println("separando pedido para entregador " + this_completo);
+    System.out.println("separando pedido para entregador " + this.nome_completo);
     lista_entrega.add(nova_entrega);
   }
 }
